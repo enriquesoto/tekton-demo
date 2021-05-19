@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   generateName: toolkit-run-
-  namespace: tekton-builds
+  namespace: tekton-cicd
 spec:
   pipelineRef:
     name: toolkit

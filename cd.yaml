@@ -4,7 +4,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: toolkit
-  namespace: tekton-builds
+  namespace: tekton-cicd
 spec:
   params:
   - name: project
@@ -79,7 +79,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: build-kaniko-git
-  namespace: tekton-builds
+  namespace: tekton-cicd
 spec:
   params:
   - name: app_repo
@@ -108,7 +108,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: task-echo
-  namespace: tekton-builds
+  namespace: tekton-cicd
 spec:
   params:
   - name: message
@@ -125,7 +125,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: task-kustomize
-  namespace: tekton-builds
+  namespace: tekton-cicd
 spec:
   params:
   - name: container_image
@@ -150,7 +150,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: task-git-clone
-  namespace: tekton-builds
+  namespace: tekton-cicd
 spec:
   workspaces:
   - name: source
@@ -191,4 +191,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: default
-    namespace: tekton-builds
+    namespace: tekton-cicd
